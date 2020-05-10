@@ -38,13 +38,15 @@ const Content = () => {
 const MarkdownView = ({content}) => {
   const theme = 'rgb(' + (256 - Math.floor(Math.random() * 75)) + ',' + (256 - Math.floor(Math.random() * 75)) + ',' + (256 - Math.floor(Math.random() * 75)) + ')';
   const theme2 = 'rgb(' + (190 - Math.floor(Math.random() * 75)) + ',' + (256 - Math.floor(Math.random() * 75)) + ',' + (256 - Math.floor(Math.random() * 75)) + ')';
+  const theme3 = 'rgb(' + (190 - Math.floor(Math.random() * 75)) + ',' + (256 - Math.floor(Math.random() * 75)) + ',' + (256 - Math.floor(Math.random() * 75)) + ')';
 
   return <ScrollView style={{padding: 20}}>
     <Markdown style={{
       body: {color: '#dbdbdb', fontSize: 30, lineHeight: 36, fontFamily: 'Avenir-Light'},
       list_item: {lineHeight: 36},
-      heading1: {color: theme, fontSize: 50, lineHeight: 60},
-      heading2: {color: theme2, fontSize: 40, lineHeight: 50},
+      heading1: {color: theme, fontWeight: 'bold', fontSize: 100, lineHeight: 110},
+      heading2: {color: theme2, fontSize: 70, lineHeight: 90},
+      heading3: {color: theme3, fontSize: 40, lineHeight: 50},
       blockquote: {backgroundColor: '#535353'},
       code_block: {backgroundColor: '#535353', fontFamily: 'Menlo'},
       code_inline: {backgroundColor: '#535353', fontFamily: 'Menlo'},
