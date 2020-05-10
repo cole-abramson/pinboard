@@ -9,10 +9,17 @@ current_pin = {
 }
 
 post '/sms' do
-  current_pin = {
-    type: "IMAGE_URL",
-    content: params['Body']
-  }
+  if params['Body'] =~ /http(s?):\/\//
+    current_pin = {
+      type: "IMAGE_URL",
+      content: params['Body']
+    }
+  else
+    current_pin = {
+      type: "MARKDOWN",
+      content: params['Body']
+    }
+  end
 end
 
 post '/email' do
