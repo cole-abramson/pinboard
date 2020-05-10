@@ -1,3 +1,3 @@
 set -e
 
-git push heroku `git subtree split --prefix server master`:master --force
+git subtree push --prefix server heroku master
