@@ -20,6 +20,8 @@ post '/email' do
     type: "MARKDOWN",
     content: params['plain']
   }
+
+  halt 200
 end
 
 get '/current_pin' do
