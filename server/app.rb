@@ -8,26 +8,27 @@ current_pin = {
   content: "http://coleabramson.com/pinboard.png"
 }
 
-post '/sms' do
-  if params['Body'] =~ /http(s?):\/\//
-    current_pin = {
+def to_current_pin(raw_content)
+  if raw_content =~ /http(s?):\/\//
+    {
       type: "IMAGE_URL",
-      content: params['Body']
+      content: raw_content
     }
   else
-    current_pin = {
+    {
       type: "MARKDOWN",
-      content: params['Body']
+      content: raw_content
     }
   end
 end
 
-post '/email' do
-  current_pin = {
-    type: "MARKDOWN",
-    content: params['plain']
-  }
+post '/sms' do
+  current_pin = to_current_pin(params['Body'])
+  halt 200
+end
 
+post '/email' do
+  current_pin = to_current_pin(params['plain'])
   halt 200
 end
 
