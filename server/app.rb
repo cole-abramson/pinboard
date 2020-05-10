@@ -3,13 +3,13 @@ require 'bundler'
 require 'sinatra'
 Bundler.setup(:default)
 
+@current_content = "https://placekitten.com/1000/800"
+
 post '/sms' do
   content_type 'text/xml'
-
-  puts "body:"
-  puts params['Body']
+  @current_content = params['Body']
 end
 
 get '/' do
-  'hey!'
+  @current_content
 end
