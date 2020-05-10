@@ -8,3 +8,7 @@ post '/sms' do
 
   twiml.to_s
 end
+
+get '/' do
+  'hey!'
+end
