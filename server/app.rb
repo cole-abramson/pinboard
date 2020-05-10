@@ -5,7 +5,7 @@ require 'pry'
 
 current_pin = {
   type: "IMAGE_URL",
-  url: "http://coleabramson.com/pinboard.png"
+  content: "http://coleabramson.com/pinboard.png"
 }
 
 post '/sms' do
@@ -23,5 +23,5 @@ post '/email' do
 end
 
 get '/current_pin' do
-  current_pin
+  json current_pin
 end
