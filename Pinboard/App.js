@@ -7,9 +7,9 @@ const App: () => React$Node = () => {
 
   useEffect(() => {
     const interval = setInterval(() =>
-      fetch('https://pinboard-nexusa.herokuapp.com/')
+      fetch('http://localhost:4567/current_pin')
         .then(res => res.json())
-        .then(setContentUrl),
+        .then(res => setContentUrl(res.body.url)),
       5000
     )
 
