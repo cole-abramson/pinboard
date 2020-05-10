@@ -1,0 +1,8 @@
+
+# .pairs - configuration for 'git pair'
+pairs:
+  os: Oliver Switzer
+  ca: Cole Abramson
+email:
+  prefix: pair
+  domain: dahmlabs.com
