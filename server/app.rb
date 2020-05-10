@@ -7,7 +7,7 @@ post '/sms' do
   content_type 'text/xml'
 
   puts "body:"
-  puts params[:body]
+  puts params['Body']
 end
 
 get '/' do
