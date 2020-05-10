@@ -1,17 +1,27 @@
 require 'sinatra'
 require 'sinatra/json'
 require "sinatra/reloader" if development?
+require 'pry'
 
-current_content = "https://placekitten.com/1000/800"
+current_pin = {
+  type: "IMAGE_URL",
+  url: "http://coleabramson.com/pinboard.png"
+}
 
 post '/sms' do
-  content_type 'text/xml'
-  current_content = params['Body']
+  current_pin = {
+    type: "IMAGE_URL",
+    content: params['Body']
+  }
+end
+
+post '/email' do
+  current_pin = {
+    type: "MARKDOWN",
+    content: params['plain']
+  }
 end
 
 get '/current_pin' do
-  json({
-    type: "IMAGE_URL",
-    url: current_content
-  })
+  current_pin
 end
